@@ -105,7 +105,7 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 }
 
 func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
-	data := app.newTemplateData(r) // otherwise will give error, default values can be set
+	data := app.newTemplateData(r) // !otherwise will give error [.Form.FieldErrors is nil], default values can be set
 	data.Form = userSignupForm{}
 	app.render(w, http.StatusOK, "signup.tmpl", data)
 }
